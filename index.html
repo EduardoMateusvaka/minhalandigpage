@@ -311,52 +311,6 @@
 </script>
 
 <body>
-
- <!-- VIDEO INTRO (abre antes da landing) -->
-<div id="video-intro" class="intro-overlay">
-  <video
-    id="introVideo"
-    class="intro-video"
-    autoplay
-    muted
-    playsinline
-    preload="auto"
-  >
-    <source src="https://ik.imagekit.io/tsqgf9mdf/Cria%C3%A7%C3%A3o_de_V%C3%ADdeo_de_Vendas_Vertical.mp4" type="video/mp4" />
-  </video>
-
-  <button id="soundBtn" class="sound-btn" type="button">🔊 Ativar som</button>
-  <button id="skipBtn" class="skip-btn" type="button">Pular</button>
-</div>
-
-<script>
-  (function () {
-    const overlay = document.getElementById("video-intro");
-    const video = document.getElementById("introVideo");
-    const soundBtn = document.getElementById("soundBtn");
-    const skipBtn = document.getElementById("skipBtn");
-
-    function closeIntro() {
-      overlay.classList.add("intro-hide");
-      try { video.pause(); } catch(e) {}
-    }
-
-    // Ativar som (só funciona após clique - regra do navegador)
-    soundBtn.addEventListener("click", function () {
-      video.muted = false;
-      video.volume = 1.0;
-      video.play();
-      soundBtn.style.display = "none";
-    });
-
-    // Pular
-    skipBtn.addEventListener("click", closeIntro);
-
-    // Quando acabar o vídeo, libera a landing
-    video.addEventListener("ended", closeIntro);
-  })();
-</script>
-
 </body>
 
 
@@ -410,7 +364,7 @@
             <h3>📱 100% Responsiva</h3>
             <p>
                 Funciona perfeitamente no celular, tablet e computador.
-                Seu cliente compra de qualquer lugar.
+                Seu cliente compra e agenda de qualquer lugar.
             </p>
         </div>
     </div>
@@ -422,8 +376,9 @@
 <div class="price-box">
   <span class="old-price">De R$ 399,90</span>
   <span class="new-price">
-    Por apenas <strong>R$ 189,90</strong>
-    <p>Ultimos dias de oferta!
+    Por apenas <strong>>R$ 189,90</strong>
+    <p>
+      <h1>Ultimos dias de oferta!</h1>
   </span>
 </div>
 
