@@ -1,178 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <style>
-  .intro-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 999999;
-    background: #000;
-  }
-
-  .intro-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .sound-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    padding: 14px 18px;
-    border-radius: 14px;
-    border: none;
-    background: rgba(0,0,0,.6);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-  }
-</style>
-
-    <meta charset="UTF-8">
-    <title>Landing Page Profissional por R$ 189,90</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        <button id="soundBtn">🔊 Ativar Som</button>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #0f0f0f;
-            color: #fff;
-            line-height: 1.5;
-        }
-
-        header {
-            background: linear-gradient(135deg, #644040, #09090f);
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .cta-btn {
-            background: #000;
-            color: #f5f5f8;
-            padding: 18px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            background: #111;
-            transform: scale(1.05);
-        }
-
-        section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .box {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
-        }
-
-        .box h3 {
-            color: #a7ff04;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .price {
-            text-align: center;
-            background: #111;
-            border: 2px solid #4505f5;
-        }
-
-        .price h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #00e676;
-        }
-
-        .price span {
-            font-size: 1.1rem;
-            color: #aaa;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 15px;
-            background: #000;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Botão WhatsApp flutuante */
-        .whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: hsla(64, 100%, 49%, 0.945);
-            color: #fff;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            text-decoration: none;
-            box-shadow: 0 0 15px rgba(0,0,0,0.4);
-            z-index: 999;
-            transition: 0.3s;
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page Profissional por R$ 189,90</title>
 
   <style>
-    /* === BOTÃO NEON === */
+    /* ===== VIDEO INTRO (9:16 SEM ESTICAR / SEM CORTAR) ===== */
+    .intro-overlay{
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .btn-neon-fix {
+    /* Caixa 9:16 (estilo TikTok) */
+    .intro-frame{
+      width: min(92vw, 420px);
+      aspect-ratio: 9 / 16;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 40px rgba(0,0,0,.6);
+    }
+
+    /* Vídeo mantém proporção (SEM corte / SEM esticar) */
+    .intro-video{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .sound-btn, .skip-btn, .saiba-mais-btn{
+      position: absolute;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(0,0,0,.65);
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      padding: 12px 16px;
+      letter-spacing: .4px;
+    }
+
+    .skip-btn{
+      top: 14px;
+      right: 14px;
+      font-weight: 700;
+    }
+
+    .sound-btn{
+      bottom: 16px;
+      right: 16px;
+    }
+
+    .saiba-mais-btn{
+      display: none;
+      bottom: 16px;
+      left: 16px;
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      border: 0;
+      padding: 13px 18px;
+      font-size: 16px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse{
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .intro-hide{
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+
+    /* ====== SUA LANDING (base) ====== */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background: #0f0f0f;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    header{
+      background: linear-gradient(135deg, #644040, #09090f);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1{
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    header p{
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    section{
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .box{
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .box h3{
+      color: #a7ff04;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .price{
+      text-align: center;
+      background: #111;
+      border: 2px solid #4505f5;
+    }
+
+    .price h2{
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #00e676;
+    }
+
+    .price span{
+      font-size: 1.1rem;
+      color: #aaa;
+    }
+
+    footer{
+      text-align: center;
+      padding: 30px 15px;
+      background: #000;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .cta-btn{
+      background: #000;
+      color: #f5f5f8;
+      padding: 18px 35px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .cta-btn:hover{
+      background: #111;
+      transform: scale(1.05);
+    }
+
+    .btn-neon-fix{
       background-color: #000 !important;
       color: #fff !important;
       border: 2px solid transparent;
@@ -186,269 +195,212 @@
       transition: all 0.25s ease;
     }
 
-    .btn-neon-fix:hover {
+    .btn-neon-fix:hover{
       border-color: #00ff66;
-      box-shadow:
-        0 0 8px #00ff66,
-        0 0 18px rgba(0, 255, 102, 0.8);
+      box-shadow: 0 0 8px #00ff66, 0 0 18px rgba(0, 255, 102, 0.8);
       transform: scale(1.05);
     }
 
-    .btn-neon-fix:active {
-      transform: scale(0.97);
+    .btn-neon-fix:active{ transform: scale(0.97); }
+
+    .whatsapp{
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: hsla(64, 100%, 49%, 0.945);
+      color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      z-index: 999;
+      transition: 0.3s;
     }
 
+    .whatsapp:hover{ transform: scale(1.1); }
+
+    @media (max-width: 600px){
+      header h1{ font-size: 2rem; }
+    }
   </style>
-
-  <style>
-  .intro-overlay{
-    position: fixed;
-    inset: 0;
-    z-index: 999999;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .intro-video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* cobre toda a tela */
-  }
-
-  .intro-skip{
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(0,0,0,.6);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,.25);
-    padding: 10px 14px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-
-  .intro-hide{
-    display: none !important;
-  }
-</style>
-
 </head>
-<style>
-  .intro-overlay{
-    position: fixed;
-    inset: 0;
-    z-index: 999999;
-    background: #000;
-  }
-  .intro-video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .sound-btn, .skip-btn{
-    position: absolute;
-    bottom: 20px;
-    padding: 12px 16px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,.25);
-    background: rgba(0,0,0,.6);
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .sound-btn{ right: 20px; }
-  .skip-btn{ left: 20px; }
-  .intro-hide{ display:none !important; }
-</style>
-
-<script>
-  (function () {
-    const overlay = document.getElementById("video-intro");
-    const video = document.getElementById("introVideo");
-    const skip = document.getElementById("skipIntro");
-
-    // Opcional: mostrar só 1x por pessoa (por sessão)
-    const alreadySeen = sessionStorage.getItem("introSeen");
-    if (alreadySeen === "1") {
-      overlay.classList.add("intro-hide");
-      return;
-    }
-
-    function closeIntro() {
-      overlay.classList.add("intro-hide");
-      overlay.setAttribute("aria-hidden", "true");
-      sessionStorage.setItem("introSeen", "1");
-      try { video.pause(); } catch (e) {}
-    }
-
-    // Fecha quando terminar
-    video.addEventListener("ended", closeIntro);
-
-    // Botão pular
-    skip.addEventListener("click", closeIntro);
-
-    // Segurança: se o autoplay falhar, ainda deixa a pessoa pular
-    setTimeout(() => {
-      // se o vídeo não estiver tocando, mantém overlay mas botão funciona
-      // você pode optar por fechar automaticamente depois de X segundos:
-      // closeIntro();
-    }, 1200);
-  })();
-</script>
-<script>
-  document.getElementById("soundBtn").addEventListener("click", function () {
-    const video = document.getElementById("introVideo");
-
-    video.muted = false;
-    video.volume = 1.0;
-    video.play();
-
-    this.style.display = "none";
-  });
-</script>
 
 <body>
-</body>
 
+  <!-- ===== VIDEO INTRO (ABRE ANTES DA LANDING) ===== -->
+  <div id="video-intro" class="intro-overlay" aria-hidden="false">
+    <div class="intro-frame">
+      <video id="introVideo" class="intro-video" autoplay muted playsinline preload="auto">
+        <source src="https://ik.imagekit.io/tsqgf9mdf/MindVideo_20260116211332_542.mp4" type="video/mp4">
+      </video>
 
-<header>
-<img
-  src="https://ik.imagekit.io/tsqgf9mdf/ChatGPT_Image_Jan_16__2026__03_18_01_AM-removebg-preview.png"
-  style="max-width: 50%; height: auto;"
->
-
-    <h3>Sua Landing Page Profissional <P>
-
-    </P>PRONTA PARA VENDER </h3>
-    <p>
-        ENTREGAMOS EM ATÉ 48HRS! <P>
-       <h> Pare de perder dinheiro agora. <h> 
-        <p>
-            
-        </p>
-        Tenha uma landing page moderna, rápida e focada em conversão
-        para vender todos os dias no automático.
-    </p>
-<button 
-  class="btn-neon-fix"
-  onclick="window.location.href='https://go.zeroonepay.com.br/pbmrha5lbs'">
-  COMPRAR AGORA
-</button>
-
-</a>
-
-</header>
-
-<section>
-    <div class="grid">
-        <div class="box">
-            <h3>🚀 Design Profissional</h3>
-            <p>
-                Layout moderno, limpo e focado em conversão. Ideal para anúncios, tráfego pago
-                e vendas diretas.
-            </p>
-        </div>
-
-        <div class="box">
-            <h3>⚡ Entrega Rápida</h3>
-            <p>
-                Nada de enrolação. Você recebe sua landing page pronta para publicar
-                e começar a vender imediatamente.
-            </p>
-        </div>
-
-        <div class="box">
-            <h3>📱 100% Responsiva</h3>
-            <p>
-                Funciona perfeitamente no celular, tablet e computador.
-                Seu cliente compra e agenda de qualquer lugar.
-            </p>
-        </div>
+      <button id="skipBtn" class="skip-btn" type="button">Pular</button>
+      <button id="soundBtn" class="sound-btn" type="button">🔊 Ativar som</button>
+      <button id="saibaMaisBtn" class="saiba-mais-btn" type="button">SAIBA MAIS</button>
     </div>
-</section>
-
-<section id="comprar">
-    <div class="box price">
-        <h2>R$ 189,90</h2>
-<div class="price-box">
-  <span class="old-price">De R$ 399,90</span>
-  <span class="new-price">
-    Por apenas <strong>>R$ 189,90</strong>
-    <p>
-      <h1>Ultimos dias de oferta!</h1>
-  </span>
-</div>
-
-
-        </p>
-        <a class="cta-btn" 
-           href="https://api.whatsapp.com/send/?phone=%2B5513996132845&text&type=phone_number&app_absent=0"
-           target="_blank">
-            COMPRAR AGORA NO WHATSAPP
-        </a>
-    </div>
-</section>
-
-<section>
-    <div class="grid">
-        <div class="box">
-           <img src="https://ik.imagekit.io/tsqgf9mdf/istockphoto-1473451342-612x612-removebg-preview.png"
-           style="max-width: 80%; height: auto;" <p></p>
-
-            <h3>❌ Chega de improviso</h3>
-            <p>
-                Amadorismo não vende. Seu negócio precisa de uma página feita para converter,
-                não de um site genérico.
-            </p>
-        </div>
-
-        <div class="box">
-
-             <img src="https://ik.imagekit.io/tsqgf9mdf/ab812c2f-0cca-4cb1-b26e-fa6538759248.jpg?updatedAt=1768556351036"
-           style="max-width: 80%; height: auto;" <p></p>
-            <h3>💰 Foco em Conversão</h3>
-            <p>
-                Copy agressiva, chamadas claras e botão direto no WhatsApp
-                para fechar venda rápido.
-            </p>
-        </div>
-       <div class="box profile-box">
-  
-  <img 
-    src="https://ik.imagekit.io/tsqgf9mdf/ChatGPT_Image_Jan_16__2026__03_36_11_AM-removebg-preview.png"
-     style="max-width: 80%; height: auto;"
-    alt="Eduardo - Especialista em Marketing"
-    class="profile-img"
-  >
-
-  <div class="profile-text">
-    <h3>👋 Quem sou eu</h3>
-    <p>
-      Sou Eduardo, especialista em criação de landing pages focadas
-      em conversão, com copy estratégica e botão direto no WhatsApp.
-    </p>
   </div>
 
-</div>
+  <!-- ===== SUA LANDING ===== -->
+  <header>
+    <img
+      src="https://ik.imagekit.io/tsqgf9mdf/ChatGPT_Image_Jan_16__2026__03_18_01_AM-removebg-preview.png"
+      style="max-width: 50%; height: auto;"
+      alt="Logo"
+    />
 
-</div>
+    <h3>Sua Landing Page Profissional<br>PRONTA PARA VENDER</h3>
 
+    <p>
+      ENTREGAMOS EM ATÉ 48HRS!<br>
+      Pare de perder dinheiro agora.<br>
+      Tenha uma landing page moderna, rápida e focada em conversão
+      para vender todos os dias no automático.
+    </p>
+
+    <button
+      class="btn-neon-fix"
+      onclick="window.location.href='https://go.zeroonepay.com.br/pbmrha5lbs'">
+      COMPRAR AGORA
+    </button>
+  </header>
+
+  <section>
+    <div class="grid">
+      <div class="box">
+        <h3>🚀 Design Profissional</h3>
+        <p>Layout moderno, limpo e focado em conversão. Ideal para anúncios, tráfego pago e vendas diretas.</p>
+      </div>
+
+      <div class="box">
+        <h3>⚡ Entrega Rápida</h3>
+        <p>Nada de enrolação. Você recebe sua landing page pronta para publicar e começar a vender imediatamente.</p>
+      </div>
+
+      <div class="box">
+        <h3>📱 100% Responsiva</h3>
+        <p>Funciona perfeitamente no celular, tablet e computador. Seu cliente compra e agenda de qualquer lugar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comprar">
+    <div class="box price">
+      <h2>R$ 189,90</h2>
+      <div class="price-box">
+        <span class="old-price">De R$ 399,90</span><br>
+        <span class="new-price">Por apenas <strong>R$ 189,90</strong></span>
+        <h1 style="margin-top: 10px;">Últimos dias de oferta!</h1>
+      </div>
+
+      <br>
+
+   <a class="cta-btn"
+   href="https://go.zeroonepay.com.br/pbmrha5lbs"
+   target="_blank" rel="noopener">
+  COMECE SUA LANDING PAGE JÁ!
+</a>
 
     </div>
-</section>
+  </section>
 
-<footer>
-    © 2026 • Todos os direitos reservados
-</footer>
+  <section>
+    <div class="grid">
+      <div class="box">
+        <img
+          src="https://ik.imagekit.io/tsqgf9mdf/istockphoto-1473451342-612x612-removebg-preview.png"
+          style="max-width: 80%; height: auto;"
+          alt="Improviso"
+        />
+        <h3 style="margin-top: 14px;">❌ Chega de improviso</h3>
+        <p>Amadorismo não vende. Seu negócio precisa de uma página feita para converter, não de um site genérico.</p>
+      </div>
 
-<a class="whatsapp"
-   href="https://api.whatsapp.com/send/?phone=%2B5513996132845&text&type=phone_number&app_absent=0"
-   target="_blank">
+      <div class="box">
+        <img
+          src="https://ik.imagekit.io/tsqgf9mdf/ab812c2f-0cca-4cb1-b26e-fa6538759248.jpg?updatedAt=1768556351036"
+          style="max-width: 80%; height: auto;"
+          alt="Conversao"
+        />
+        <h3 style="margin-top: 14px;">💰 Foco em Conversão</h3>
+        <p>Copy agressiva, chamadas claras e botão direto no WhatsApp para fechar venda rápido.</p>
+      </div>
+
+      <div class="box">
+        <img
+          src="https://ik.imagekit.io/tsqgf9mdf/ChatGPT_Image_Jan_16__2026__03_36_11_AM-removebg-preview.png"
+          style="max-width: 80%; height: auto;"
+          alt="Eduardo"
+        />
+        <h3 style="margin-top: 14px;">👋 Quem sou eu</h3>
+        <p>Sou Eduardo, especialista em criação de landing pages focadas em conversão, com copy estratégica e botão direto no WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 • Todos os direitos reservados - Marks mkt Digital!
+  </footer>
+
+  <a class="whatsapp"
+     href="https://api.whatsapp.com/send/?phone=%2B5513996132845&text&type=phone_number&app_absent=0"
+     target="_blank" rel="noopener">
     ☎
-</a>
+  </a>
+
+  <!-- ===== JS (NO FINAL, SEM NULL) ===== -->
+  <script>
+    (function () {
+      const overlay = document.getElementById("video-intro");
+      const video = document.getElementById("introVideo");
+      const soundBtn = document.getElementById("soundBtn");
+      const skipBtn = document.getElementById("skipBtn");
+      const saibaMaisBtn = document.getElementById("saibaMaisBtn");
+
+      // Mostra só 1x por sessão
+      const alreadySeen = sessionStorage.getItem("introSeen");
+      if (alreadySeen === "1") {
+        overlay.classList.add("intro-hide");
+        overlay.setAttribute("aria-hidden", "true");
+        return;
+      }
+
+      function closeIntro() {
+        overlay.classList.add("intro-hide");
+        overlay.setAttribute("aria-hidden", "true");
+        sessionStorage.setItem("introSeen", "1");
+        try { video.pause(); } catch(e) {}
+      }
+
+      soundBtn.addEventListener("click", function () {
+        video.muted = false;
+        video.volume = 1.0;
+        video.play().catch(() => {});
+        soundBtn.style.display = "none";
+      });
+
+      skipBtn.addEventListener("click", closeIntro);
+
+      // Quando terminar o vídeo: mostra "Saiba Mais"
+      video.addEventListener("ended", function () {
+        saibaMaisBtn.style.display = "inline-block";
+      });
+
+      // Clique no "Saiba Mais": fecha intro e rola pro CTA (ou redireciona)
+      saibaMaisBtn.addEventListener("click", function () {
+        closeIntro();
+        const target = document.querySelector("#comprar");
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+
+        // Se preferir mandar direto pro checkout, troque o bloco acima por:
+        // window.location.href = "https://go.zeroonepay.com.br/pbmrha5lbs";
+      });
+    })();
+  </script>
 
 </body>
 </html>
